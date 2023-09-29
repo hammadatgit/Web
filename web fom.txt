@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Add custom CSS for styling -->
+    <style>
+        /* Neon-style background */
+        body {
+            background: linear-gradient(135deg, #000000 0%, #007bff 100%);
+            background-size: 400% 400%;
+            animation: gradientBG 15s linear infinite;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Sans-serif font family */
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Text color */
+        .text-white {
+            color: #fff !important;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: transparent !important;
+        }
+
+        .navbar .navbar-brand {
+            color: #fff !important;
+            font-size: 1.5rem;
+        }
+
+        /* Jumbotron styling */
+        .jumbotron {
+            background-color: transparent !important;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .jumbotron h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Form container styling */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Validation alert styling */
+        .validation-alert {
+            color: #f00;
+            font-size: 0.8rem;
+        }
+
+        /* Sign-up button hover animation */
+        .btn-primary:hover {
+            background-color: #0056b3;
+            transition: background-color 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Bootstrap navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand text-white" href="#">CONTACT US</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">About Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Bootstrap jumbotron -->
+    <div class="jumbotron">
+        <h1 class="text-white">Have a question or feedback?</h1>
+        <p class="text-white">Contact us using the form below.</p>
+    </div>
+
+    <!-- Bootstrap form -->
+    <div class="container form-container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" required>
+                        <div class="validation-alert" id="fullNameAlert"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                        <div class="validation-alert" id="emailAlert"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                        <div class="validation-alert" id="messageAlert"></div>
+                    </div>
+
+                    <!-- Submission Status -->
+                    <div class="form-group">
+                        <div id="submissionStatus"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="background-color: #007bff;">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Bootstrap and custom JavaScript if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Add custom JavaScript for form submission and status -->
+    <script>
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the default form submission behavior
+
+            // Perform form validation as shown in previous code
+            let valid = true;
+
+            // ... (validation logic for all fields)
+
+            if (valid) {
+                // Form submission is successful
+                document.getElementById('submissionStatus').innerHTML = '<div class="alert alert-success" role="alert">Message sent successfully!</div>';
+            } else {
+                // Form submission is unsuccessful
+                document.getElementById('submissionStatus').innerHTML = '<div class="alert alert-danger" role="alert">Message sending failed. Please check your inputs.</div>';
+            }
+        });
+    </script>
+</body>
+</html>
